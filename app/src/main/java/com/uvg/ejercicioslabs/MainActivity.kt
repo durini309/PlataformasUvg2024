@@ -24,23 +24,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             EjerciciosLabsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ColumnAndRow(
+                    Text(
+                        "Hola mundo!",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EjerciciosLabsTheme {
-        Surface(
-            color = MaterialTheme.colorScheme.background
-        ) {
-            ColumnAndRow()
         }
     }
 }

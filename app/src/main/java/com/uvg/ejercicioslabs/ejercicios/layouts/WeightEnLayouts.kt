@@ -47,7 +47,9 @@ fun WeightEnLayouts(
 @Composable
 private fun PreviewWeightEnLayouts() {
     EjerciciosLabsTheme {
-        Surface {
+        Surface(
+            modifier = Modifier.fillMaxSize()
+        ) {
             WeightEnLayouts(
                 modifier = Modifier.fillMaxSize()
             )
