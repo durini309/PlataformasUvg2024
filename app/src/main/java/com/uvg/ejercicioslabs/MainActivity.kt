@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.uvg.ejercicioslabs.ejercicios.componentes.LoginEPS
 import com.uvg.ejercicioslabs.ejercicios.layouts.ColumnAndRow
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
@@ -24,10 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EjerciciosLabsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Text(
-                        "Hola mundo!",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    LoginEPS()
                 }
             }
         }
