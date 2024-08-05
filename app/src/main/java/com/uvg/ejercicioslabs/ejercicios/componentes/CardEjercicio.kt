@@ -39,7 +39,7 @@ fun CardEjercicio() {
     ) {
         Row(Modifier.fillMaxWidth()) {
             Image(
-                painter = painterResource(id = R.mipmap.logo_eps_2),
+                painter = painterResource(id = R.drawable.logo_eps_2),
                 contentDescription = "x",
                 modifier = Modifier
                     .fillMaxHeight()

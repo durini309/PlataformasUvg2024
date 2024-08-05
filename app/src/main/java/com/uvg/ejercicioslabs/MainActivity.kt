@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.uvg.ejercicioslabs.ejercicios.componentes.LoginEPS
 import com.uvg.ejercicioslabs.ejercicios.layouts.ColumnAndRow
+import com.uvg.ejercicioslabs.laboratorios.lab4.SolucionLab4
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             EjerciciosLabsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginEPS()
+                    SolucionLab4(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding)
+                    )
                 }
             }
         }

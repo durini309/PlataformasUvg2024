@@ -38,7 +38,7 @@ fun LoginEPS() {
             .padding(16.dp)
     ){
         Image(
-            painter = painterResource(id = R.mipmap.logo_eps),
+            painter = painterResource(id = R.drawable.logo_eps),
             contentDescription = "LOGO App",
             modifier = Modifier.fillMaxWidth()
         )
