@@ -14,7 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.uvg.ejercicioslabs.ejercicios.agosto9.PantallaConContador
+import com.uvg.ejercicioslabs.ejercicios.agosto9.PantallaFormularioDinamico
 import com.uvg.ejercicioslabs.ejercicios.componentes.LoginEPS
+import com.uvg.ejercicioslabs.ejercicios.componentes.PantallaLoginEps
 import com.uvg.ejercicioslabs.ejercicios.layouts.ColumnAndRow
 import com.uvg.ejercicioslabs.laboratorios.lab4.SolucionLab4
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
@@ -26,7 +29,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EjerciciosLabsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SolucionLab4(
+                    PantallaLoginEps(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(innerPadding)
