@@ -8,12 +8,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.uvg.ejercicioslabs.laboratorios.LaboratoriosDestination
-import com.uvg.ejercicioslabs.laboratorios.LaboratoriosRoute
-import com.uvg.ejercicioslabs.ui.home.HomeDestination
-import com.uvg.ejercicioslabs.ui.home.HomeRoute
+import com.uvg.ejercicioslabs.ejercicios.navigation.dogList.DogListDestination
+import com.uvg.ejercicioslabs.ejercicios.navigation.dogList.dogListScreen
+import com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile.DogProfileDestination
+import com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile.dogProfileScreen
+import com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile.navigateToDogProfileScreen
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,29 +27,26 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = HomeDestination,
+                        startDestination = DogListDestination,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(innerPadding)
                     ) {
-                        composable<HomeDestination> {
-                            HomeRoute(
-                                onEjerciciosClick = { },
-                                onLaboratoriosClick = {
-                                    navController.navigate(
-                                        route = LaboratoriosDestination
+                        dogListScreen(
+                            onDogClick = { dog ->
+                                navController.navigateToDogProfileScreen(
+                                    destination = DogProfileDestination(
+                                        dogId = dog.id,
+                                        dogName = dog.name
                                     )
-                                }
-                            )
-                        }
-                        composable<LaboratoriosDestination> {
-                            LaboratoriosRoute(
-                                onLab4Click = { /*TODO*/ },
-                                onLab5Click = { /*TODO*/ },
-                                onLab6Click = { /*TODO*/ },
-                                onNavigateBack = { navController.navigateUp() }
-                            )
-                        }
+                                )
+                            }
+                        )
+                        dogProfileScreen(
+                            onNavigateBack = {
+                                navController.navigateUp()
+                            }
+                        )
                     }
                 }
             }
