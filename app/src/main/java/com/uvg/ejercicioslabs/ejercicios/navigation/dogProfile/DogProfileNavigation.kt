@@ -9,8 +9,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DogProfileDestination(
-    val dogId: Int,
-    val dogName: String
+    val dogId: Int
 )
 
 fun NavController.navigateToDogProfileScreen(
@@ -27,7 +26,6 @@ fun NavGraphBuilder.dogProfileScreen(
         val destination: DogProfileDestination = backStackEntry.toRoute()
         DogProfileRoute(
             id = destination.dogId,
-            name = destination.dogName,
             onNavigateBack = onNavigateBack
         )
     }

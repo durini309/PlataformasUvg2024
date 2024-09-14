@@ -14,6 +14,7 @@ import com.uvg.ejercicioslabs.ejercicios.navigation.dogList.dogListScreen
 import com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile.DogProfileDestination
 import com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile.dogProfileScreen
 import com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile.navigateToDogProfileScreen
+import com.uvg.ejercicioslabs.ejercicios.nestedNavigation.BackStackExampleHavHost
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,11 +34,10 @@ class MainActivity : ComponentActivity() {
                             .padding(innerPadding)
                     ) {
                         dogListScreen(
-                            onDogClick = { dog ->
+                            onDogClick = { id ->
                                 navController.navigateToDogProfileScreen(
                                     destination = DogProfileDestination(
-                                        dogId = dog.id,
-                                        dogName = dog.name
+                                        dogId = id
                                     )
                                 )
                             }

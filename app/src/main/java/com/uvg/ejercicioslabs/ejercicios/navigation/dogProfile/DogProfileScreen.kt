@@ -2,10 +2,8 @@ package com.uvg.ejercicioslabs.ejercicios.navigation.dogProfile
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,24 +17,21 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.uvg.ejercicioslabs.ejercicios.navigation.BreedSize
-import com.uvg.ejercicioslabs.ejercicios.navigation.getBreedSizeFromId
+import com.uvg.ejercicioslabs.ejercicios.navigation.getDogDataFromId
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
 @Composable
 fun DogProfileRoute(
     id: Int,
-    name: String,
     onNavigateBack: () -> Unit,
 ) {
-    val breedSize = getBreedSizeFromId(id)
+    val dog = getDogDataFromId(id)
     DogProfileScreen(
         id = id,
-        name = name,
-        breedSize = breedSize,
+        name = dog.name,
+        breedSize = dog.breedSize,
         onNavigateBack = onNavigateBack,
         modifier = Modifier.fillMaxSize()
     )

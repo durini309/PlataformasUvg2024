@@ -18,7 +18,7 @@ import com.uvg.ejercicioslabs.ejercicios.navigation.dogs
 
 @Composable
 fun DogListRoute(
-    onDogClick: (Dog) -> Unit,
+    onDogClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     DogListScreen(
@@ -29,7 +29,7 @@ fun DogListRoute(
 
 @Composable
 private fun DogListScreen(
-    onDogClick: (Dog) -> Unit,
+    onDogClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier) {
@@ -38,7 +38,7 @@ private fun DogListScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
-                    .clickable { onDogClick(dog) }
+                    .clickable { onDogClick(dog.id) }
             ) {
                 Text(
                     text = dog.toString(),

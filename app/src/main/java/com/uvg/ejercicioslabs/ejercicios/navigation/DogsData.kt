@@ -27,12 +27,11 @@ val dogs by lazy {
         Dog(
             id = it,
             name = randomDogNames.random(),
-            breedSize = BreedSize.values().random()
+            breedSize = BreedSize.entries.toTypedArray().random()
         )
     }
 
     randomDogs
 }
 
-fun getBreedSizeFromId(id: Int): BreedSize =
-    dogs.first { dog -> dog.id == id }.breedSize
+fun getDogDataFromId(id: Int): Dog = dogs.first { dog -> dog.id == id }

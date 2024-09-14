@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
 data object DogListDestination
 
 fun NavGraphBuilder.dogListScreen(
-    onDogClick: (Dog) -> Unit
+    onDogClick: (Int) -> Unit
 ) {
     composable<DogListDestination> {
         DogListRoute(
