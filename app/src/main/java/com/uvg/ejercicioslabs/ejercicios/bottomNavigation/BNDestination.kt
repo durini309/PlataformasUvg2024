@@ -1,0 +1,3 @@
+package com.uvg.ejercicioslabs.ejercicios.bottomNavigation
+
+interface BNDestination
