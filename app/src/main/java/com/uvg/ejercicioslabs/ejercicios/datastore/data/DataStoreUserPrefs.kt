@@ -28,9 +28,9 @@ class DataStoreUserPrefs(
     }
 
     override suspend fun getValue(key: String): String? {
-        val preferencesKey = when {
-            key == "name" -> nameKey
-            key == "email" -> emailKey
+        val preferencesKey = when (key) {
+            "name" -> nameKey
+            "email" -> emailKey
             else -> null
         }
 

@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
@@ -26,8 +27,9 @@ import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 fun DataStoreRoute(
     viewModel: DataStoreViewModel = viewModel(factory = DataStoreViewModel.Factory)
 ) {
-    val state by viewModel.state.collectAsState()
-    val nameAndEmailState by viewModel.nameAndEmailState.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val nameAndEmailState by viewModel.nameAndEmailState.collectAsStateWithLifecycle()
+
     DataStoreScreen(
         state = state,
         nameAndEmail = nameAndEmailState,
@@ -54,7 +56,10 @@ private fun DataStoreScreen(
     Column(
         modifier = modifier
     ) {
-        Box(Modifier.fillMaxWidth().weight(1f)) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)) {
             SaveValuesSection(
                 email = state.email,
                 name = state.name,
@@ -62,28 +67,40 @@ private fun DataStoreScreen(
                 onNameChange = onNameChange,
                 onSaveEmailClick = onSaveEmailClick,
                 onSaveNameClick = onSaveNameClick,
-                modifier = Modifier.align(Alignment.Center).padding(16.dp)
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(16.dp)
             )
         }
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth()
         )
-        Box(Modifier.fillMaxWidth().weight(1f)) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)) {
             GetKeySection(
                 key = state.key,
                 value = state.value,
                 onKeyChange = onKeyChange,
                 onGetValueClick = onGetValueClick,
-                modifier = Modifier.align(Alignment.Center).padding(16.dp)
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(16.dp)
             )
         }
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth()
         )
-        Box(Modifier.fillMaxWidth().weight(1f)) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)) {
             NameEmailSection(
                 nameAndEmail = nameAndEmail,
-                modifier = Modifier.align(Alignment.Center).padding(16.dp)
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(16.dp)
             )
         }
     }
