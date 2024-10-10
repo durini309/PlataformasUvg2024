@@ -1,4 +1,4 @@
-package com.uvg.ejercicioslabs.ejercicios.datastore.presentation
+package com.uvg.ejercicioslabs.ejercicios.datastore.presentation.playground
 
 data class DataStoreScreenState(
     val name: String = "",

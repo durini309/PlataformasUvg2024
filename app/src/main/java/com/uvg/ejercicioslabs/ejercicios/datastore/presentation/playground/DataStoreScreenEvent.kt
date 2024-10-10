@@ -1,4 +1,4 @@
-package com.uvg.ejercicioslabs.ejercicios.datastore.presentation
+package com.uvg.ejercicioslabs.ejercicios.datastore.presentation.playground
 
 sealed interface DataStoreScreenEvent {
     data class EmailChange(val email: String): DataStoreScreenEvent
