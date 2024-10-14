@@ -73,6 +73,8 @@ dependencies {
     implementation(libs.androidx.splashscreen)
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
+    // Esta librería es necesaria para poder usar corrutinas y flows con Room
+    implementation(libs.androidx.room.ktx)
 
 
     testImplementation(libs.junit)

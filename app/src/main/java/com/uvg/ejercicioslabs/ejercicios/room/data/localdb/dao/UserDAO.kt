@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM UserEntity WHERE (:id IS NULL OR id = :id)")
-    fun getAllUsers(id: Int? = null): Flow<List<UserEntity>>
+    @Query("SELECT * FROM UserEntity")
+    fun getAllUsers(): Flow<List<UserEntity>>
 
     @Query("DELETE FROM UserEntity WHERE id = :id")
     suspend fun deleteUser(id: Int)

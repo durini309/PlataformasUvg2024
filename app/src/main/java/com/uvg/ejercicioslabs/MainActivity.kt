@@ -30,6 +30,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EjerciciosLabsTheme {
                 Surface {
+                    // Comentar si quieren probar algo mas.
                     DSAppContent(authViewModel)
                 }
             }
