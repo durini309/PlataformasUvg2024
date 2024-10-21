@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.uvg.ejercicioslabs.ejercicios.room.data.localdb.AppDatabase
 
-object Dependencies {
+object RoomDependencies {
     private var database: AppDatabase? = null
 
     private fun buildDatabase(context: Context): AppDatabase {

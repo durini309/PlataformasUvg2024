@@ -9,7 +9,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.uvg.ejercicioslabs.ejercicios.room.data.localdb.dao.UserDao
 import com.uvg.ejercicioslabs.ejercicios.room.data.localdb.entity.mapToEntity
 import com.uvg.ejercicioslabs.ejercicios.room.data.localdb.entity.mapToModel
-import com.uvg.ejercicioslabs.ejercicios.room.di.Dependencies
+import com.uvg.ejercicioslabs.ejercicios.room.di.RoomDependencies
 import com.uvg.ejercicioslabs.ejercicios.room.domain.model.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -60,7 +60,7 @@ class RoomViewModel(
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application = checkNotNull(this[APPLICATION_KEY])
-                val db = Dependencies.provideDatabase(application)
+                val db = RoomDependencies.provideDatabase(application)
                 RoomViewModel(
                     userDao = db.userDao()
                 )
