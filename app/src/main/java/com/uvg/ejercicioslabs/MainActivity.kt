@@ -23,9 +23,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        installSplashScreen().setKeepOnScreenCondition {
-            authViewModel.authStatus.value is DSAuthStatus.Loading
-        }
+        // Si quieren usar el splash screen asociado al view model
+//        installSplashScreen().setKeepOnScreenCondition {
+//            authViewModel.authStatus.value is DSAuthStatus.Loading
+//        }
+
+        installSplashScreen()
 
         setContent {
             EjerciciosLabsTheme {
