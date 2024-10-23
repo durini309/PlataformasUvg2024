@@ -78,8 +78,7 @@ dependencies {
 
     // Agregamos todas las librerías de una vez
     implementation(libs.bundles.ktor)
-
-
+    implementation(libs.bundles.coil)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
