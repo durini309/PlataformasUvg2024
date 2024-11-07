@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -23,11 +21,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
+import com.uvg.ejercicioslabs.R
 import com.uvg.ejercicioslabs.ejercicios.ktor.domain.model.Monster
 import com.uvg.ejercicioslabs.ejercicios.ktor.presentation.common.ErrorLayout
 import com.uvg.ejercicioslabs.ejercicios.ktor.presentation.common.LoadingLayout
@@ -62,8 +62,17 @@ private fun MonsterListScreen(
                 )
             }
             
-            state.isError -> {
+            state.isGenericError -> {
                 ErrorLayout(
+                    text = stringResource(R.string.error_fetching_data),
+                    onRetryClick = onRetryClick,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+
+            state.noInternetConnection -> {
+                ErrorLayout(
+                    text = stringResource(R.string.no_internect_connection),
                     onRetryClick = onRetryClick,
                     modifier = Modifier.align(Alignment.Center)
                 )
@@ -108,9 +117,7 @@ private fun MonsterItem(
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.primaryContainer)
         )
-        Column {
-            Text(monster.name)
-        }
+        Text(monster.name)
     }
 }
 

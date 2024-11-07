@@ -1,5 +1,6 @@
 package com.uvg.ejercicioslabs.ejercicios.ktor.data.network.dto
 
+import com.uvg.ejercicioslabs.ejercicios.ktor.data.local.entity.MonsterEntity
 import com.uvg.ejercicioslabs.ejercicios.ktor.domain.model.Monster
 import kotlinx.serialization.Serializable
 
@@ -15,6 +16,16 @@ data class EntryDto(
 
 fun EntryDto.mapToMonsterModel(): Monster {
     return Monster(
+        id = id,
+        name = name,
+        image = image,
+        description = description,
+        dlc = dlc
+    )
+}
+
+fun EntryDto.mapToMonsterEntity(): MonsterEntity {
+    return MonsterEntity(
         id = id,
         name = name,
         image = image,

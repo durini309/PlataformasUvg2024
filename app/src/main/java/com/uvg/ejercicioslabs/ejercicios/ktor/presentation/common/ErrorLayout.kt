@@ -17,6 +17,7 @@ import com.uvg.ejercicioslabs.R
 
 @Composable
 fun ErrorLayout(
+    text: String,
     onRetryClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -26,7 +27,7 @@ fun ErrorLayout(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(Icons.Default.ErrorOutline, contentDescription = "Error")
-        Text(stringResource(R.string.error_fetching_data))
+        Text(text)
         OutlinedButton(onClick = onRetryClick) {
             Text(text = stringResource(R.string.retry))
         }
