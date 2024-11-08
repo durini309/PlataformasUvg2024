@@ -5,6 +5,7 @@ coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
+kotlinxCoroutinesPlayServices = "1.9.0"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.9.1"
 composeBom = "2024.04.01"
@@ -16,6 +17,9 @@ splashScreen = "1.0.1"
 room = "2.6.1"
 ktor = "2.3.12"
 coil = "3.0.0-rc01"
+firebase = "33.5.1"
+google-services = "4.4.2"
+crashlytics = "3.0.2"
 
 
 [libraries]
@@ -49,10 +53,19 @@ ktor-serialization-kotlinx-json = { group = "io.ktor", name="ktor-serialization-
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
+kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name="kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutinesPlayServices" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics"}
 
 [bundles]
 ktor = [
@@ -65,6 +78,12 @@ ktor = [
 coil = [
     "coil-compose",
     "coil-network"
+]
+firebase-libs = [
+    "firebase-auth",
+    "firebase-firestore",
+    "firebase-crashlytics",
+    "kotlinx-coroutines-play-services"
 ]
 
 

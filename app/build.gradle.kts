@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.crashlytics)
     id("kotlin-kapt")
 }
 
@@ -79,6 +81,11 @@ dependencies {
     // Agregamos todas las librerías de una vez
     implementation(libs.bundles.ktor)
     implementation(libs.bundles.coil)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.bundles.firebase.libs)
+    implementation(libs.kotlinx.coroutines.play.services)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

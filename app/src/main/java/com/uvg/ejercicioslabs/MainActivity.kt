@@ -13,6 +13,9 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.uvg.ejercicioslabs.ejercicios.datastore.presentation.authdemo.DSAppContent
 import com.uvg.ejercicioslabs.ejercicios.datastore.presentation.authdemo.DSAuthViewModel
 import com.uvg.ejercicioslabs.ejercicios.datastore.presentation.authdemo.DSAuthStatus
+import com.uvg.ejercicioslabs.ejercicios.firebase.presentation.FirebaseApp
+import com.uvg.ejercicioslabs.ejercicios.firebase.presentation.home.HomeRoute
+import com.uvg.ejercicioslabs.ejercicios.firebase.presentation.login.LoginRoute
 import com.uvg.ejercicioslabs.ui.theme.EjerciciosLabsTheme
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -33,8 +36,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EjerciciosLabsTheme {
                 Surface {
-                    // Comentar si quieren probar algo mas.
-                    DSAppContent(authViewModel)
+                    FirebaseApp()
                 }
             }
         }
